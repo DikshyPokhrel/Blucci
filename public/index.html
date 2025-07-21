@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blucci Furniture</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <div class="popup-overlay" id="popup">
+    <div class="popup-content">
+      <span class="popup-close" id="popupClose">&times;</span>
+      <p>Memorial Day Sale – Enjoy up to 30% Off Storewide!</p>
+    </div>
+  </div>
+
+  <div class="promo-banner">
+  <div class="scroll-text">
+    Memorial Day Sale : Up to 30% OFF Storewide.
+  </div>
+</div>
+
+
+  <header class="main-header">
+  <div class="logo-and-toggle">
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+    <div class="logo">
+      <a href="index.html">
+        <img src="Images/logo.png" alt="Blucci Logo" class="logo-img" />
+      </a>
+    </div>
+    <div class="top-info">
+      <div class="top-contact">
+        <div class="contact-info">
+          <i class="fas fa-phone"></i><span>972 293 6644</span>
+        </div>
+        <div class="login">
+          <i class="fas fa-user"></i><span>Login</span>
+        </div>
+      </div>
+      <div class="nav-icons">
+        <i class="fas fa-search" title="Search"></i>
+        <a href="wishlist.html" title="Wishlist" class="icon-link">
+          <i class="far fa-heart"></i>
+        </a>
+        <a href="cart.html" title="Cart" class="icon-link">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav-menu desktop-nav" id="navMenu" aria-label="Primary navigation">
+    <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
+
+    <div class="dropdown">
+      <a href="livingroom.html">Living Room</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <div class="dropdown-item"><img src="Images/italian-leather.jpg" alt="Leather Sectionals" /><span>Leather Sectionals</span></div>
+          <div class="dropdown-item"><img src="Images/bue leather sofa.jpg" alt="Leather Sofas" /><span>Leather Sofas</span></div>
+          <div class="dropdown-item"><img src="Images/fabric selection.jpg" alt="Fabric Sectionals" /><span>Fabric Sectionals</span></div>
+          <div class="dropdown-item"><img src="Images/fabric sofa.jpg" alt="Fabric Sofas" /><span>Fabric Sofas</span></div>
+          <div class="dropdown-item"><img src="Images/recliners.jpg" alt="Recliners" /><span>Recliners</span></div>
+          <div class="dropdown-item"><img src="Images/accent chair.jpg" alt="Accent Chairs" /><span>Accent Chairs</span></div>
+          <div class="dropdown-item"><img src="Images/ocassinal table.jpg" alt="Occasional Tables" /><span>Occasional Tables</span></div>
+          <div class="dropdown-item"><img src="Images/console.jpg" alt="Console/Sofa Table" /><span>Console/Sofa Table</span></div>
+          <div class="dropdown-item"><img src="Images/end table.jpg" alt="End Tables" /><span>End Tables</span></div>
+          <div class="dropdown-item"><img src="Images/ottoman.jpg" alt="Ottomans" /><span>Ottomans</span></div>
+        </div>
+        <a href="livingroom.html" class="shop-all-link">Shop All Living</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Bedroom</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <div class="dropdown-item"><img src="Images/bedroom set.jpg" alt="Bedroom Sets" /><span>Bedroom Sets</span></div>
+          <div class="dropdown-item"><img src="Images/beds.jpg" alt="Beds" /><span>Beds</span></div>
+          <div class="dropdown-item"><img src="Images/dresser.jpeg" alt="Dressers" /><span>Dressers</span></div>
+          <div class="dropdown-item"><img src="Images/chest.jpg" alt="Chests" /><span>Chests</span></div>
+          <div class="dropdown-item"><img src="Images/night stand.jpg" alt="Night Stands" /><span>Night Stands</span></div>
+          <div class="dropdown-item"><img src="Images/" alt="Mattress" /><span>Mattress</span></div>
+        </div>
+        <a href="#" class="shop-all-link">Shop All Bedroom</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Dining Room</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <div class="dropdown-item"><img src="Images/formal dining set.jpg" alt="Formal Dining Sets" /><span>Formal Dining Sets</span></div>
+          <div class="dropdown-item"><img src="Images/formal dining set.jpg" alt="Casual Dining Set" /><span>Casual Dining Set</span></div>
+          <div class="dropdown-item"><img src="Images/dining chair.jpg" alt="Dining Chairs" /><span>Dining Chairs</span></div>
+          <div class="dropdown-item"><img src="Images/dining table.jpg" alt="Dining Tables" /><span>Dining Tables</span></div>
+          <div class="dropdown-item"><img src="Images/dining/pub-table.png" alt="Pub Tables" /><span>Pub Tables</span></div>
+          <div class="dropdown-item"><img src="Images/dining/bar-table.png" alt="Bar Tables" /><span>Bar Tables</span></div>
+          <div class="dropdown-item"><img src="Images/dining/buffet.png" alt="Buffets" /><span>Buffets</span></div>
+          <div class="dropdown-item"><img src="Images/dining/bar-stool.png" alt="Bar Stools" /><span>Bar Stools</span></div>
+          <div class="dropdown-item"><img src="Images/dining/counter-stool.png" alt="Counter Stools" /><span>Counter Stools</span></div>
+        </div>
+        <a href="#" class="shop-all-link">Shop All Dining</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Accessories</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <div class="dropdown-item"><img src="Images/" alt="Rugs" /><span>Rugs</span></div>
+          <div class="dropdown-item"><img src="Images/" alt="Table Lamps" /><span>Table Lamps</span></div>
+          <div class="dropdown-item"><img src="Images/" alt="Floor Lamps" /><span>Floor Lamps</span></div>
+          <div class="dropdown-item"><img src="Images/rt.jpg" alt="Art" /><span>Art</span></div>
+          <div class="dropdown-item"><img src="Images/mirror.jpg" alt="Mirrors" /><span>Mirrors</span></div>
+          <div class="dropdown-item"><img src="Images/" alt="Vases/Figurines" /><span>Vases/Figurines</span></div>
+        </div>
+        <a href="#" class="shop-all-link">Shop All Accessories</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Office Room</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <div class="dropdown-item"><img src="Images/desk.jpg" alt="Desk" /><span>Desk</span></div>
+          <div class="dropdown-item"><img src="Images/office chair.jpg" alt="Office Chair" /><span>Office Chair</span></div>
+          <div class="dropdown-item"><img src="Images/" alt="File Cabinet" /><span>File Cabinet</span></div>
+          <div class="dropdown-item"><img src="Images/" alt="Book Case" /><span>Book Case</span></div>
+        </div>
+        <a href="#" class="shop-all-link">Shop All Office</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Outdoor</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <div class="dropdown-item"><img src="Images/" alt="Outdoor Seats" /><span>Outdoor Seats</span></div>
+          <div class="dropdown-item"><img src="Images/" alt="Outdoor Tables" /><span>Outdoor Tables</span></div>
+        </div>
+        <a href="#" class="shop-all-link">Shop All Outdoor</a>
+      </div>
+    </div>
+
+    <a href="#">Brands</a>
+    <a href="#">Financing</a>
+  </nav>
+</header>
+
+
+<div class="image-slider">
+  <img src="Images/buffet.jpg class="slider-image active" />
+  <img src="Images/1.jpg" class="slider-image" />
+  <img src="Images/console.jpg" class="slider-image" />
+
+  <button id="prevSlide" class="slider-arrow left-arrow">&#10094;</button>
+  <button id="nextSlide" class="slider-arrow right-arrow">&#10095;</button>
+
+  <a href="allproducts.html" class="slider-cta">Shop Now</a>
+</div>
+
+  <section class="welcome-elevate-section">
+  <h2>WELCOME TO BLUCCI CONTEMPORARY FURNITURE</h2>
+  <p>
+    We sell a variety of quality furniture styles for any home. Whatever is on your wish list, our great customer service teams are here to help. From bedroom furniture, home furnishings, home office furniture, modern furniture to Amish, we can fulfill your home decor needs. Affordable prices and financing options are waiting for you.
+  </p>
+</section>
+
+
+<section class="category-scroll-section">
+  <h2 class="category-title">What are you looking for?</h2>
+  <div class="scroll-container">
+    <div class="category-card">
+      <img src="images/" alt="Leather">
+      <h3>Leather</h3>
+      <a href="allproducts.html" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="images/" alt="Leather">
+      <h3>Leather</h3>
+      <a href="allproducts.html?category=leather" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="images/" alt="Bed">
+      <h3>Bed</h3>
+      <a href="allproducts.html?category=bed" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="images/" alt="Sofa">
+      <h3>Sofa</h3>
+      <a href="allproducts.html?category=sofa" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="images/" alt="Coffee Tables">
+      <h3>Coffee Tables</h3>
+      <a href="allproducts.html?category=coffee-tables" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="images/" alt="Tables">
+      <h3>Tables</h3>
+      <a href="allproducts.html?category=tables" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="images/" alt="Accessories">
+      <h3>Accessories</h3>
+      <a href="accessories.html" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="images/" alt="Outdoor">
+      <h3>Outdoor</h3>
+      <a href="outdoor.html" class="shop-now-btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+
+  <div class="page-container">
+    <h1 class="section-title">Explore By Room</h1>
+
+    <div class="room-buttons">
+      <button class="active" onclick="showRoom('living', event)">Living Room</button>
+      <button onclick="showRoom('bedroom', event)">Bedroom</button>
+      <button onclick="showRoom('dining', event)">Dining</button>
+      <button onclick="showRoom('office', event)">Office</button>
+      <button onclick="showRoom('outdoor', event)">Outdoor</button>
+    </div>
+
+    <div id="living" class="room-section active">
+      <div class="room-image">
+        <img src="Images/showroom.jpg" alt="Living Room" />
+      </div>
+      <div class="room-content">
+        <h2>LIVING ROOM</h2>
+        <p>Discover comfortable and stylish living room furniture that transforms your space. From sofas to coffee tables, Blucci's collection offers timeless pieces for your home.</p>
+        <a href="#">SHOP NOW</a>
+      </div>
+    </div>
+
+    <div id="bedroom" class="room-section reverse">
+      <div class="room-image">
+        <img src="Images/1.jpg" alt="Bedroom" />
+      </div>
+      <div class="room-content">
+        <h2>BEDROOM</h2>
+        <p>Turn your bedroom into a serene retreat with Blucci's beds, nightstands, wardrobes, and more — where comfort meets elegance.</p>
+        <a href="#">SHOP NOW</a>
+      </div>
+    </div>
+
+    <div id="dining" class="room-section">
+      <div class="room-image">
+        <img src="Images/2.jpg" alt="Dining Room" />
+      </div>
+      <div class="room-content">
+        <h2>DINING ROOM</h2>
+        <p>Find dining room sets, tables, chairs, bar stools, sideboards, bar cabinets, and more to elevate your everyday dining experience.</p>
+        <a href="#">SHOP NOW</a>
+      </div>
+    </div>
+
+    <div id="office" class="room-section reverse">
+      <div class="room-image">
+        <img src="Images/3.jpg" alt="Office" />
+      </div>
+      <div class="room-content">
+        <h2>OFFICE</h2>
+        <p>Upgrade your workspace with our refined collection of desks, chairs, and shelves — where functionality meets luxury.</p>
+        <a href="#">SHOP NOW</a>
+      </div>
+    </div>
+
+    <div id="outdoor" class="room-section">
+      <div class="room-image">
+        <img src="Images/3.jpg" alt="Outdoor" />
+      </div>
+      <div class="room-content">
+        <h2>OUTDOOR</h2>
+        <p>See what's new in Blucci's outdoor furniture collections. Our latest pieces feature updated shapes, durable materials, and beautiful finishes built to last.</p>
+        <a href="#">SHOP NOW</a>
+      </div>
+    </div>
+
+    <section class="elevate-section">
+      <h2>Elevate Your Home with Blucci</h2>
+      <p>Discover premium furniture collections designed for comfort, style, and durability. Whether it's your living room, bedroom, or office, Blucci brings you quality pieces that transform spaces into warm, inviting homes.</p>
+    </section>
+
+    <section class="category-scroll-section">
+  <h2 class="category-title">Finishing Touches to Perfect Your Space</h2>
+  <p class="category-subtitle">
+    Complete your home’s look with our thoughtfully curated selections — from textured rugs to captivating art and elegant lighting that bring your rooms to life.
+  </p><br><br>
+  <div class="scroll-container">
+    <div class="category-card">
+      <img src="Images/accessory1.jpg" alt="Rugs">
+      <h3>Rugs</h3>
+      <p class="category-desc">Add warmth and texture with our curated collection of stylish rugs.</p><br>
+      <a href="accessories.html?type=rugs" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="Images/accessory2.jpg" alt="Table Lamps">
+      <h3>Table Lamps</h3>
+      <p class="category-desc">Illuminate your spaces with elegant and functional table lamps.</p><br>
+      <a href="accessories.html?type=table-lamps" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="Images/accessory3.jpg" alt="Floor Lamps">
+      <h3>Floor Lamps</h3>
+      <p class="category-desc">Stylish floor lamps that bring ambiance and character to any room.</p><br>
+      <a href="accessories.html?type=floor-lamps" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="Images/accessory4.jpg" alt="Art">
+      <h3>Art</h3>
+      <p class="category-desc">Curated art pieces to inspire and personalize your home.</p><br>
+      <a href="accessories.html?type=art" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="Images/accessory5.jpg" alt="Mirrors">
+      <h3>Mirrors</h3>
+      <p class="category-desc">Elegant mirrors that enhance space and light in your home.</p><br>
+      <a href="accessories.html?type=mirrors" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="Images/accessory6.jpg" alt="Vases / Figurines">
+      <h3>Vases / Figurines</h3>
+      <p class="category-desc">Delicate vases and figurines to add charm and personality.</p><br>
+      <a href="accessories.html?type=vases" class="shop-now-btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+  </div>
+
+  <section class="showroom">
+    <div class="image-container">
+      <img src="Images/showroom.jpg"Showroom Bedroom Set">
+    </div>
+
+    <div class="text-container">
+      <h2>VISIT OUR SHOWROOM TODAY</h2>
+      <p>
+        Explore Bloed Contemporary Furniture’s beautiful range—from living room and bedroom sets to elegant dining tables, area rugs, and mattresses. Every item is new and available for immediate pickup or delivery. Great Furniture. Great Prices. Great Service.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+  <div class="footer-container">
+    <div class="newsletter">
+      <h3>Special Offers For Subscribers</h3>
+      <p>The Latest From Blucci</p>
+      <form>
+        <input type="email" placeholder="Email" required />
+        <button type="submit">Submit</button>
+        <small>By continuing, you accept the privacy policy</small>
+      </form>
+    </div>
+
+    <div class="about">
+      <h3>About Us</h3>
+      <p>Our outlets are always changing - you will find a whole new selection each week and a new treasure hunt each visit! If you see something you love, you’d better grab it before someone else does!</p>
+    </div>
+
+    <div class="links">
+  <h3>Quick Links</h3>
+  <ul>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Store Locations</a></li>
+    <li><a href="#">Careers</a></li>
+    <li><a href="#">Terms & Conditions</a></li>
+  </ul>
+</div>
+
+    <div class="contact">
+      <h3>Contact Us</h3>
+      <p>info@blucci.com<br>972 293 6644</p>
+      <p>
+        Mon - Fri: 10AM - 7PM<br>
+        Sat: 10AM - 6PM<br>
+        Sun: Closed
+      </p>
+    </div>
+
+    <div class="social">
+  <h3>Social Feeds</h3>
+  <ul>
+    <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+  </ul>
+</div>
+
+
+  <div class="footer-bottom">
+    <p>Copyright © 2025 Blucci. All Right Reserved</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

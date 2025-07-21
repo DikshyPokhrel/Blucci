@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Living Room Products</title>
+  <link rel="stylesheet" href="css/products.css" />
+</head>
+<body>
+
+<main class="room-container">
+  <h1 class="room-section-title">Living Room Products</h1>
+  <div class="room-controls">
+    <div class="room-total-count" id="totalProductCount">Total Products: 0</div>
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search products..."
+      style="padding:8px; font-size:1rem; width: 200px; margin-right:10px;"
+    />
+    <button id="filterSortToggle">Filter & Sort</button>
+  </div>
+
+  <div class="filter-sort-panel hidden" id="filterSortPanel">
+    <form id="filterSortForm">
+      <fieldset>
+        <legend>Category</legend>
+        <label><input type="checkbox" name="category" value="Sofas" /> Sofas</label>
+        <label><input type="checkbox" name="category" value="Recliners" /> Recliners</label>
+        <label><input type="checkbox" name="category" value="Accent Chairs" /> Accent Chairs</label>
+        <label><input type="checkbox" name="category" value="Sofa Beds" /> Sofa Beds</label>
+        <label><input type="checkbox" name="category" value="Leather Sofas" /> Leather Sofas</label>
+        <label><input type="checkbox" name="category" value="Sectionals" /> Sectionals</label>
+        <label><input type="checkbox" name="category" value="Loveseats" /> Loveseats</label>
+        <label><input type="checkbox" name="category" value="Chaise Lounges" /> Chaise Lounges</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Price Range</legend>
+        <input type="number" name="minPrice" placeholder="Min Price" />
+        <input type="number" name="maxPrice" placeholder="Max Price" />
+      </fieldset>
+
+      <fieldset>
+        <legend>Sort By</legend>
+        <select name="sortBy">
+          <option value="featured">Featured</option>
+          <option value="bestSelling">Best Selling</option>
+          <option value="alphaAsc">Alphabetically, A-Z</option>
+          <option value="alphaDesc">Alphabetically, Z-A</option>
+          <option value="priceAsc">Price, Low to High</option>
+          <option value="priceDesc">Price, High to Low</option>
+          <option value="dateNew">Date, New to Old</option>
+          <option value="dateOld">Date, Old to New</option>
+        </select>
+      </fieldset>
+
+      <button type="submit">Apply Filters</button>
+    </form>
+  </div>
+
+  <div class="room-product-list grid-view" id="roomProductGrid"></div>
+
+  <div class="room-pagination" id="roomPaginationControls"></div>
+</main>
+
+<div id="productModal" class="modal hidden">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <img id="modalImage" src="" alt="" class="modal-image" />
+    <h2 id="modalName"></h2>
+    <p id="modalPrice"></p>
+    <button id="addToCartBtn">Add to Cart</button>
+    <button id="addToWishlistBtn">Add to Wishlist</button>
+  </div>
+</div>
+
+
+
+<script src="js/products.js"></script>
+</body>
+</html>
