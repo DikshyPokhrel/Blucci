@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-=======
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
->>>>>>> 57ead0b (update)
 
 const app = express();
 const PORT = 3000;
