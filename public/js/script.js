@@ -11,9 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menuToggle");
   const navMenu = document.getElementById("navMenu");
   const closeMenu = document.getElementById("closeMenu");
-  if (menuToggle && navMenu && closeMenu) {
-    menuToggle.onclick = () => navMenu.classList.add("active");
-    closeMenu.onclick = () => navMenu.classList.remove("active");
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  }
+  if (closeMenu && navMenu) {
+    closeMenu.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+    });
   }
 
   let slideIndex1 = 0;
@@ -47,21 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 4000);
   }
 
-  const hamburger = document.getElementById("hamburger");
-  const mobileNav = document.getElementById("mobileNav");
-  const mobileNavClose = document.getElementById("mobileNavClose");
-  if (hamburger && mobileNav && mobileNavClose) {
-    hamburger.addEventListener("click", () => {
-      if(mobileNav.classList.contains("active")){
-        mobileNav.classList.remove("active");
-      } else {
-        mobileNav.classList.add("active");
-      }
-    });
-    mobileNavClose.addEventListener("click", () => {
-      mobileNav.classList.remove("active");
-    });
-  }
 
   const heroSlides = document.querySelectorAll(".hero-slide");
   const prevBtn2 = document.getElementById("prev");

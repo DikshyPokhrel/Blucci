@@ -3,215 +3,224 @@ let filteredProducts = [];
 let currentPage = 1;
 const itemsPerPage = 24;
 
-const productGrid = document.getElementById('roomProductGrid');
-const totalCount = document.getElementById('totalProductCount');
 const paginationControls = document.getElementById('roomPaginationControls');
 const filterSortPanel = document.getElementById('filterSortPanel');
 const filterSortToggle = document.getElementById('filterSortToggle');
 const filterSortForm = document.getElementById('filterSortForm');
 const searchInput = document.getElementById('searchInput');
 
-async function loadLivingRoomProducts() {
-  try {
-    const response = await fetch('/api/livingroom-products');
-    const products = await response.json();
+const categoryMap = {
+    "allproducts": {
+        api: "/api/images",
+        category: "All Products"
+    },
+    "livingroom": {
+        api: "/api/images/living-room",
+        category: "Living Room"
+    },
+    "bedroom": {
+        api: "/api/images/bedroom",
+        category: "Bedroom"
+    },
+    "diningroom": {
+        api: "/api/images/dining-Room",
+        category: "Dining Room"
+    },
+    "office": {
+        api: "/api/images/office",
+        category: "Office"
+    },
+    "accessories": {
+        api: "/api/images/accessories",
+        category: "Accessories"
+    },
+    "outdoors": {
+        api: "/api/images/outdoors",
+        category: "Outdoor"
+    }
+};
 
-    allProducts = products.map(image => ({
-      image,
-      name: image.replace(/[-_]/g, ' ').replace(/\.[^/.]+$/, ''),
-      category: guessCategory(image),
-      price: randomPrice(),
-      dateAdded: randomDate()
-    }));
+function formatNameFromSrc(src) {
+    const filename = src.split('/').pop().split('.')[0];
+    return filename.replace(/[-_]/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\s+/g, ' ').trim();
+}
 
-    filteredProducts = allProducts;
+async function loadProducts() {
+    let pageTitle = document.title.toLowerCase().replace("products", "").trim();
+    if (pageTitle.includes("all")) pageTitle = "allproducts";
+    else if (pageTitle.includes("living")) pageTitle = "livingroom";
+    else if (pageTitle.includes("bedroom")) pageTitle = "bedroom";
+    else if (pageTitle.includes("dining")) pageTitle = "diningroom";
+    else if (pageTitle.includes("outdoor")) pageTitle = "outdoors";
+    else if (pageTitle.includes("office")) pageTitle = "office";
+    else if (pageTitle.includes("accessories")) pageTitle = "accessories";
+
+    const categoryInfo = categoryMap[pageTitle];
+    if (!categoryInfo) {
+        console.error("Unknown page title:", document.title);
+        return;
+    }
+
+    allProducts = [];
+
+    if (pageTitle === "allproducts") {
+        const categoryKeys = Object.keys(categoryMap).filter(key => key !== "allproducts");
+
+        for (let key of categoryKeys) {
+            try {
+                const res = await fetch(categoryMap[key].api);
+                const data = await res.json();
+                const images = data.images || data;
+
+                const products = images.map((src, index) => ({
+                    src,
+                    name: formatNameFromSrc(src),
+                    dateAdded: Date.now() - allProducts.length * 1000,
+                    category: categoryMap[key].category
+                }));
+
+                allProducts.push(...products);
+            } catch (err) {
+                console.error(`Failed to load products from ${categoryMap[key].api}`, err);
+            }
+        }
+    } else {
+        try {
+            const res = await fetch(categoryInfo.api);
+            const data = await res.json();
+            const images = data.images || data;
+
+            allProducts = images.map((src, index) => ({
+                src,
+                name: formatNameFromSrc(src),
+                dateAdded: Date.now() - index * 1000,
+                category: categoryInfo.category
+            }));
+        } catch (err) {
+            console.error(`Failed to load products from ${categoryInfo.api}`, err);
+        }
+    }
+
+    document.getElementById('totalProductCount').textContent = `Total Products: ${allProducts.length}`;
+    filteredProducts = [...allProducts];
     render();
-  } catch (error) {
-    productGrid.innerHTML = '<p>Failed to load products.</p>';
-  }
-}
-
-function guessCategory(name) {
-  const lower = name.toLowerCase();
-  if (lower.includes('sofa')) return 'Sofas';
-  if (lower.includes('recliner')) return 'Recliners';
-  if (lower.includes('chair')) return 'Accent Chairs';
-  return 'Other';
-}
-
-function randomPrice() {
-  return Math.floor(Math.random() * 2000) + 100;
-}
-
-function randomDate() {
-  const today = new Date();
-  const daysAgo = Math.floor(Math.random() * 365);
-  const date = new Date(today);
-  date.setDate(today.getDate() - daysAgo);
-  return date;
-}
-
-function render() {
-  totalCount.textContent = `Total Products: ${filteredProducts.length}`;
-  renderProductsPage();
-  renderPagination();
 }
 
 function renderProductsPage() {
-  productGrid.innerHTML = '';
-  const start = (currentPage - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-  const productsToShow = filteredProducts.slice(start, end);
+    const grid = document.getElementById('roomProductGrid');
+    grid.innerHTML = '';
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const pageProducts = filteredProducts.slice(startIndex, endIndex);
 
-  productsToShow.forEach(product => {
-    const productCard = document.createElement('div');
-    productCard.className = 'room-product-card';
+    pageProducts.forEach(product => {
+        const card = document.createElement('div');
+        card.className = "product-card";
 
-    const img = document.createElement('img');
-    img.src = `/Images/living-room/${encodeURIComponent(product.image)}`;
-    img.alt = product.name;
-    img.className = 'room-product-image';
+        const img = document.createElement('img');
+        img.src = product.src;
+        img.alt = product.name;
+        img.className = "product-img";
+        img.addEventListener('click', () => {
+            localStorage.setItem('selectedProduct', JSON.stringify(product));
+            window.location.href = 'product-details.html';
+        });
 
-    const name = document.createElement('p');
-    name.className = 'room-product-name';
-    name.textContent = product.name;
+        const name = document.createElement('h3');
+        name.textContent = product.name;
 
-    productCard.appendChild(img);
-    productCard.appendChild(name);
-    productGrid.appendChild(productCard);
+        const priceLine = document.createElement('div');
+        priceLine.className = "price-line";
 
-    productCard.addEventListener('click', () => {
-      const params = new URLSearchParams({
-        image: product.image,
-        name: product.name,
-        price: product.price,
-        category: product.category
-      });
-      window.location.href = `product-details.html?${params.toString()}`;
+        const heart = document.createElement('i');
+        heart.className = 'fas fa-heart wishlist-icon';
+        heart.style.cursor = 'pointer';
+        heart.addEventListener('click', () => {
+            window.location.href = 'wishlist.html';
+        });
+
+        const cart = document.createElement('i');
+        cart.className = 'fas fa-shopping-cart cart-icon';
+        cart.style.cursor = 'pointer';
+        cart.addEventListener('click', () => {
+            window.location.href = 'cart.html';
+        });
+
+        priceLine.appendChild(heart);
+        priceLine.appendChild(cart);
+
+        card.appendChild(img);
+        card.appendChild(name);
+        card.appendChild(priceLine);
+
+        grid.appendChild(card);
     });
-  });
 }
 
 function renderPagination() {
-  paginationControls.innerHTML = '';
-  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-  if (totalPages <= 1) return;
+    paginationControls.innerHTML = '';
+    const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+    if (totalPages <= 1) return;
 
-  function createBtn(label, page) {
-    const btn = document.createElement('button');
-    btn.textContent = label;
-    btn.className = (page === currentPage) ? 'active' : '';
-    btn.disabled = (page === currentPage);
-    btn.addEventListener('click', () => {
-      currentPage = page;
-      renderProductsPage();
-      renderPagination();
-      scrollToTop();
-    });
-    return btn;
-  }
-
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  const prevBtn = document.createElement('button');
-  prevBtn.textContent = '<<';
-  prevBtn.disabled = currentPage === 1;
-  prevBtn.addEventListener('click', () => {
-    if (currentPage > 1) {
-      currentPage--;
-      renderProductsPage();
-      renderPagination();
-      scrollToTop();
+    function createBtn(label, page) {
+        const btn = document.createElement('button');
+        btn.textContent = label;
+        btn.className = (page === currentPage) ? 'active' : '';
+        btn.disabled = (page === currentPage);
+        btn.addEventListener('click', () => {
+            currentPage = page;
+            renderProductsPage();
+            renderPagination();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        return btn;
     }
-  });
-  paginationControls.appendChild(prevBtn);
 
-  paginationControls.appendChild(createBtn('1', 1));
-
-  if (currentPage > 4) {
-    const dots = document.createElement('span');
-    dots.textContent = '...';
-    dots.style.padding = '0 5px';
-    paginationControls.appendChild(dots);
-  }
-
-  const startPage = Math.max(2, currentPage - 2);
-  const endPage = Math.min(totalPages - 1, currentPage + 2);
-  for (let i = startPage; i <= endPage; i++) {
-    paginationControls.appendChild(createBtn(i, i));
-  }
-
-  if (currentPage < totalPages - 3) {
-    const dots = document.createElement('span');
-    dots.textContent = '...';
-    dots.style.padding = '0 5px';
-    paginationControls.appendChild(dots);
-  }
-
-  if (totalPages > 1) {
-    paginationControls.appendChild(createBtn(totalPages, totalPages));
-  }
-
-  const nextBtn = document.createElement('button');
-  nextBtn.textContent = '>>';
-  nextBtn.disabled = currentPage === totalPages;
-  nextBtn.addEventListener('click', () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      renderProductsPage();
-      renderPagination();
-      scrollToTop();
+    paginationControls.appendChild(createBtn('<<', 1));
+    for (let i = 1; i <= totalPages; i++) {
+        paginationControls.appendChild(createBtn(i, i));
     }
-  });
-  paginationControls.appendChild(nextBtn);
+    paginationControls.appendChild(createBtn('>>', totalPages));
 }
 
 function applyFiltersAndSort(skipFiltering = false) {
-  if (!skipFiltering) {
-    const formData = new FormData(filterSortForm);
-    const selectedCategories = formData.getAll('category');
-    const minPrice = parseFloat(formData.get('minPrice')) || 0;
-    const maxPrice = parseFloat(formData.get('maxPrice')) || Infinity;
+    if (!skipFiltering) {
+        const formData = new FormData(filterSortForm);
+        const selectedCategories = formData.getAll('category');
+        const sortBy = formData.get('sortBy');
 
-    filteredProducts = allProducts.filter(p => {
-      const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(p.category);
-      const priceMatch = p.price >= minPrice && p.price <= maxPrice;
-      return categoryMatch && priceMatch;
-    });
-  }
+        filteredProducts = allProducts.filter(p => {
+            return selectedCategories.length === 0 || selectedCategories.includes(p.category);
+        });
 
-  const sortBy = filterSortForm.sortBy.value;
+        switch (sortBy) {
+            case 'alphaAsc': filteredProducts.sort((a, b) => a.name.localeCompare(b.name)); break;
+            case 'alphaDesc': filteredProducts.sort((a, b) => b.name.localeCompare(a.name)); break;
+            case 'dateNew': filteredProducts.sort((a, b) => b.dateAdded - a.dateAdded); break;
+            case 'dateOld': filteredProducts.sort((a, b) => a.dateAdded - b.dateAdded); break;
+        }
+    }
+    currentPage = 1;
+    render();
+}
 
-  switch (sortBy) {
-    case 'alphaAsc': filteredProducts.sort((a, b) => a.name.localeCompare(b.name)); break;
-    case 'alphaDesc': filteredProducts.sort((a, b) => b.name.localeCompare(a.name)); break;
-    case 'priceAsc': filteredProducts.sort((a, b) => a.price - b.price); break;
-    case 'priceDesc': filteredProducts.sort((a, b) => b.price - a.price); break;
-    case 'dateNew': filteredProducts.sort((a, b) => b.dateAdded - a.dateAdded); break;
-    case 'dateOld': filteredProducts.sort((a, b) => a.dateAdded - b.dateAdded); break;
-    default: break;
-  }
-
-  currentPage = 1;
-  render();
+function render() {
+    renderProductsPage();
+    renderPagination();
 }
 
 filterSortToggle.addEventListener('click', () => filterSortPanel.classList.toggle('show'));
 filterSortForm.addEventListener('submit', e => {
-  e.preventDefault();
-  applyFiltersAndSort();
+    e.preventDefault();
+    applyFiltersAndSort();
 });
-
 searchInput.addEventListener('input', () => {
-  const query = searchInput.value.toLowerCase();
-
-  filteredProducts = allProducts.filter(product =>
-    product.name.toLowerCase().includes(query)
-  );
-
-  applyFiltersAndSort(true);
+    const query = searchInput.value.toLowerCase();
+    filteredProducts = allProducts.filter(product =>
+        product.name.toLowerCase().includes(query)
+    );
+    currentPage = 1;
+    render(); 
 });
 
-document.addEventListener('DOMContentLoaded', loadLivingRoomProducts);
+document.addEventListener('DOMContentLoaded', loadProducts);

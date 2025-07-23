@@ -22,8 +22,7 @@
   </div>
 </div>
 
-
-  <header class="main-header">
+<header class="main-header">
   <div class="logo-and-toggle">
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
     <div class="logo">
@@ -31,6 +30,13 @@
         <img src="Images/logo.png" alt="Blucci Logo" class="logo-img" />
       </a>
     </div>
+    <div class="search-bar-container">
+      <input type="text" id="searchInput" placeholder="Search products..." />
+      <button id="searchButton">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+
     <div class="top-info">
       <div class="top-contact">
         <div class="contact-info">
@@ -41,113 +47,219 @@
         </div>
       </div>
       <div class="nav-icons">
-        <i class="fas fa-search" title="Search"></i>
-        <a href="wishlist.html" title="Wishlist" class="icon-link">
-          <i class="far fa-heart"></i>
-        </a>
-        <a href="cart.html" title="Cart" class="icon-link">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
+        <a href="wishlist.html" class="icon-link"><i class="far fa-heart"></i></a>
+        <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i></a>
       </div>
     </div>
   </div>
 
-  <nav class="nav-menu desktop-nav" id="navMenu" aria-label="Primary navigation">
+  <nav class="nav-menu desktop-nav" id="navMenu">
     <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
 
     <div class="dropdown">
       <a href="livingroom.html">Living Room</a>
       <div class="dropdown-menu wide-dropdown">
         <div class="dropdown-grid">
-          <div class="dropdown-item"><img src="Images/italian-leather.jpg" alt="Leather Sectionals" /><span>Leather Sectionals</span></div>
-          <div class="dropdown-item"><img src="Images/bue leather sofa.jpg" alt="Leather Sofas" /><span>Leather Sofas</span></div>
-          <div class="dropdown-item"><img src="Images/fabric selection.jpg" alt="Fabric Sectionals" /><span>Fabric Sectionals</span></div>
-          <div class="dropdown-item"><img src="Images/fabric sofa.jpg" alt="Fabric Sofas" /><span>Fabric Sofas</span></div>
-          <div class="dropdown-item"><img src="Images/recliners.jpg" alt="Recliners" /><span>Recliners</span></div>
-          <div class="dropdown-item"><img src="Images/accent chair.jpg" alt="Accent Chairs" /><span>Accent Chairs</span></div>
-          <div class="dropdown-item"><img src="Images/ocassinal table.jpg" alt="Occasional Tables" /><span>Occasional Tables</span></div>
-          <div class="dropdown-item"><img src="Images/console.jpg" alt="Console/Sofa Table" /><span>Console/Sofa Table</span></div>
-          <div class="dropdown-item"><img src="Images/end table.jpg" alt="End Tables" /><span>End Tables</span></div>
-          <div class="dropdown-item"><img src="Images/ottoman.jpg" alt="Ottomans" /><span>Ottomans</span></div>
+          <a href="livingroom.html?category=leather-sectionals" class="dropdown-item">
+            <img src="Images/living-room/leather-sectionals/1717 Italian Leather Sectional.jpg" alt="Leather Sectionals" />
+            <span>Leather Sectionals</span>
+          </a>
+          <a href="livingroom.html?category=leather-sofas" class="dropdown-item">
+            <img src="Images/living-room/leather-sofas/AVERY BLACK LEATHER CHAIR.jpg" alt="Leather Sofas" />
+            <span>Leather Sofas</span>
+          </a>
+          <a href="livingroom.html?category=fabric-sectionals" class="dropdown-item">
+            <img src="Images/living-room/fabric-sectionals/Divani Casa Glendale – Modern Grey Fabric Modular Sectional Sofa.jpg" alt="Fabric Sectionals" />
+            <span>Fabric Sectionals</span>
+          </a>
+          <a href="livingroom.html?category=fabric-sofas" class="dropdown-item">
+            <img src="Images/living-room/fabric-sofas/ARNO GREY VELVET SOFA.jpg" alt="Fabric Sofas" />
+            <span>Fabric Sofas</span>
+          </a>
+          <a href="livingroom.html?category=recliners" class="dropdown-item">
+            <img src="Images/living-room/recliners/#" alt="Recliners" />
+            <span>Recliners</span>
+          </a>
+          <a href="livingroom.html?category=accent-chairs" class="dropdown-item">
+            <img src="Images/living-room/accent-chairs/CRYSTAL VELVET PATTERNED ACCENT CHAIR.jpg" alt="Accent Chairs" />
+            <span>Accent Chairs</span>
+          </a>
+          <a href="livingroom.html?category=occasionals" class="dropdown-item">
+            <img src="Images/living-room/occassionals/682-D Modern Coffee Table in Dark Oak.jpg" alt="Occasional Tables" />
+            <span>Occasional Tables</span>
+          </a>
+          <a href="livingroom.html?category=console" class="dropdown-item">
+            <img src="Images/living-room/console/sample.jpg" alt="Console/Sofa Table" />
+            <span>Console/Sofa Table</span>
+          </a>
+          <a href="livingroom.html?category=end-tables" class="dropdown-item">
+            <img src="Images/living-room/end-tables/sample.jpg" alt="End Tables" />
+            <span>End Tables</span>
+          </a>
+          <a href="livingroom.html?category=ottomans" class="dropdown-item">
+            <img src="Images/living-room/ottomans/397 Italian Leather Ottoman in Chocolate Color.jpg" alt="Ottomans" />
+            <span>Ottomans</span>
+          </a>
         </div>
         <a href="livingroom.html" class="shop-all-link">Shop All Living</a>
       </div>
     </div>
 
     <div class="dropdown">
-      <a href="#">Bedroom</a>
+      <a href="bedroom.html">Bedroom</a>
       <div class="dropdown-menu wide-dropdown">
         <div class="dropdown-grid">
-          <div class="dropdown-item"><img src="Images/bedroom set.jpg" alt="Bedroom Sets" /><span>Bedroom Sets</span></div>
-          <div class="dropdown-item"><img src="Images/beds.jpg" alt="Beds" /><span>Beds</span></div>
-          <div class="dropdown-item"><img src="Images/dresser.jpeg" alt="Dressers" /><span>Dressers</span></div>
-          <div class="dropdown-item"><img src="Images/chest.jpg" alt="Chests" /><span>Chests</span></div>
-          <div class="dropdown-item"><img src="Images/night stand.jpg" alt="Night Stands" /><span>Night Stands</span></div>
-          <div class="dropdown-item"><img src="Images/" alt="Mattress" /><span>Mattress</span></div>
+          <a href="bedroom.html?category=bedroom-sets" class="dropdown-item">
+            <img src="Images/bedroom/bedroom-sets/Bella Premium Bedroom.jpg" alt="Bedroom Sets" />
+            <span>Bedroom Sets</span>
+          </a>
+          <a href="bedroom.html?category=beds" class="dropdown-item">
+            <img src="Images/bedroom/beds/AVA FOUR-POSTER BED.jpg" alt="Beds" />
+            <span>Beds</span>
+          </a>
+          <a href="bedroom.html?category=dressers" class="dropdown-item">
+            <img src="Images/bedroom/dressers/Braga-Dresser.jpeg" alt="Dressers" />
+            <span>Dressers</span>
+          </a>
+          <a href="bedroom.html?category=chests" class="dropdown-item">
+            <img src="Images/bedroom/chests/sample.jpg" alt="Chests" />
+            <span>Chests</span>
+          </a>
+          <a href="bedroom.html?category=night-stands" class="dropdown-item">
+            <img src="Images/bedroom/night-stands/sample.jpg" alt="Night Stands" />
+            <span>Night Stands</span>
+          </a>
+          <a href="bedroom.html?category=mattress" class="dropdown-item">
+            <img src="Images/bedroom/mattress/sample.jpg" alt="Mattress" />
+            <span>Mattress</span>
+          </a>
         </div>
-        <a href="#" class="shop-all-link">Shop All Bedroom</a>
+        <a href="bedroom.html" class="shop-all-link">Shop All Bedroom</a>
       </div>
     </div>
 
     <div class="dropdown">
-      <a href="#">Dining Room</a>
+      <a href="diningroom.html">Dining Room</a>
       <div class="dropdown-menu wide-dropdown">
         <div class="dropdown-grid">
-          <div class="dropdown-item"><img src="Images/formal dining set.jpg" alt="Formal Dining Sets" /><span>Formal Dining Sets</span></div>
-          <div class="dropdown-item"><img src="Images/formal dining set.jpg" alt="Casual Dining Set" /><span>Casual Dining Set</span></div>
-          <div class="dropdown-item"><img src="Images/dining chair.jpg" alt="Dining Chairs" /><span>Dining Chairs</span></div>
-          <div class="dropdown-item"><img src="Images/dining table.jpg" alt="Dining Tables" /><span>Dining Tables</span></div>
-          <div class="dropdown-item"><img src="Images/dining/pub-table.png" alt="Pub Tables" /><span>Pub Tables</span></div>
-          <div class="dropdown-item"><img src="Images/dining/bar-table.png" alt="Bar Tables" /><span>Bar Tables</span></div>
-          <div class="dropdown-item"><img src="Images/dining/buffet.png" alt="Buffets" /><span>Buffets</span></div>
-          <div class="dropdown-item"><img src="Images/dining/bar-stool.png" alt="Bar Stools" /><span>Bar Stools</span></div>
-          <div class="dropdown-item"><img src="Images/dining/counter-stool.png" alt="Counter Stools" /><span>Counter Stools</span></div>
+          <a href="diningroom.html?category=formal-dining-sets" class="dropdown-item">
+            <img src="Images/dining-room/formal-dining-sets/Moderna Dining Set.jpg" alt="Formal Dining Sets" />
+            <span>Formal Dining Sets</span>
+          </a>
+          <a href="diningroom.html?category=casual-dining-sets" class="dropdown-item">
+            <img src="Images/dining-room/casual-dining-sets/sample.jpg" alt="Casual Dining Set" />
+            <span>Casual Dining Set</span>
+          </a>
+          <a href="diningroom.html?category=dining-chairs" class="dropdown-item">
+            <img src="Images/dining-room/dining-chairs/Chiara Dining Chair.jpg" alt="Dining Chairs" />
+            <span>Dining Chairs</span>
+          </a>
+          <a href="diningroom.html?category=dining-tables" class="dropdown-item">
+            <img src="Images/dining-room/dining-tables/Class Extension Dining Table.jpg" alt="Dining Tables" />
+            <span>Dining Tables</span>
+          </a>
+          <a href="diningroom.html?category=pub-tables" class="dropdown-item">
+            <img src="Images/dining-room/pub-tables/sample.jpg" alt="Pub Tables" />
+            <span>Pub Tables</span>
+          </a>
+          <a href="diningroom.html?category=bar-tables" class="dropdown-item">
+            <img src="Images/dining-room/bar-tables/sample.jpg" alt="Bar Tables" />
+            <span>Bar Tables</span>
+          </a>
+          <a href="diningroom.html?category=buffets" class="dropdown-item">
+            <img src="Images/dining-room/buffets/sample.jpg" alt="Buffets" />
+            <span>Buffets</span>
+          </a>
+          <a href="diningroom.html?category=bar-stools" class="dropdown-item">
+            <img src="Images/dining-room/bar-stools/sample.jpg" alt="Bar Stools" />
+            <span>Bar Stools</span>
+          </a>
+          <a href="diningroom.html?category=counter-stools" class="dropdown-item">
+            <img src="Images/dining-room/counter-stools/sample.jpg" alt="Counter Stools" />
+            <span>Counter Stools</span>
+          </a>
         </div>
-        <a href="#" class="shop-all-link">Shop All Dining</a>
+        <a href="diningroom.html" class="shop-all-link">Shop All Dining</a>
       </div>
     </div>
 
     <div class="dropdown">
-      <a href="#">Accessories</a>
+      <a href="accessories.html">Accessories</a>
       <div class="dropdown-menu wide-dropdown">
         <div class="dropdown-grid">
-          <div class="dropdown-item"><img src="Images/" alt="Rugs" /><span>Rugs</span></div>
-          <div class="dropdown-item"><img src="Images/" alt="Table Lamps" /><span>Table Lamps</span></div>
-          <div class="dropdown-item"><img src="Images/" alt="Floor Lamps" /><span>Floor Lamps</span></div>
-          <div class="dropdown-item"><img src="Images/rt.jpg" alt="Art" /><span>Art</span></div>
-          <div class="dropdown-item"><img src="Images/mirror.jpg" alt="Mirrors" /><span>Mirrors</span></div>
-          <div class="dropdown-item"><img src="Images/" alt="Vases/Figurines" /><span>Vases/Figurines</span></div>
+          <a href="accessories.html?category=rugs" class="dropdown-item">
+            <img src="Images/accessories/rugs/sample.jpg" alt="Rugs" />
+            <span>Rugs</span>
+          </a>
+          <a href="accessories.html?category=table-lamps" class="dropdown-item">
+            <img src="Images/accessories/table-lamps/sample.jpg" alt="Table Lamps" />
+            <span>Table Lamps</span>
+          </a>
+          <a href="accessories.html?category=floor-lamps" class="dropdown-item">
+            <img src="Images/accessories/floor-lamps/sample.jpg" alt="Floor Lamps" />
+            <span>Floor Lamps</span>
+          </a>
+          <a href="accessories.html?category=art" class="dropdown-item">
+            <img src="Images/accessories/art/Wall Art Elephant Power.jpg" alt="Art" />
+            <span>Art</span>
+          </a>
+          <a href="accessories.html?category=mirrors" class="dropdown-item">
+            <img src="Images/accessories/mirror/Valentina Buffet Mirror.jpg" alt="Mirrors" />
+            <span>Mirrors</span>
+          </a>
+          <a href="accessories.html?category=vases" class="dropdown-item">
+            <img src="Images/accessories/vases/sample.jpg" alt="Vases/Figurines" />
+            <span>Vases/Figurines</span>
+          </a>
         </div>
-        <a href="#" class="shop-all-link">Shop All Accessories</a>
+        <a href="accessories.html" class="shop-all-link">Shop All Accessories</a>
       </div>
     </div>
 
     <div class="dropdown">
-      <a href="#">Office Room</a>
+      <a href="office.html">Office Room</a>
       <div class="dropdown-menu wide-dropdown">
         <div class="dropdown-grid">
-          <div class="dropdown-item"><img src="Images/desk.jpg" alt="Desk" /><span>Desk</span></div>
-          <div class="dropdown-item"><img src="Images/office chair.jpg" alt="Office Chair" /><span>Office Chair</span></div>
-          <div class="dropdown-item"><img src="Images/" alt="File Cabinet" /><span>File Cabinet</span></div>
-          <div class="dropdown-item"><img src="Images/" alt="Book Case" /><span>Book Case</span></div>
+          <a href="office.html?category=desk" class="dropdown-item">
+            <img src="Images/office/desk/Elm Modern Desk in Walnut.jpg" alt="Desk" />
+            <span>Desk</span>
+          </a>
+          <a href="office.html?category=office-chair" class="dropdown-item">
+            <img src="Images/office/office-chair/Comfy Low Back Office Chair In Brown.jpg" alt="Office Chair" />
+            <span>Office Chair</span>
+          </a>
+          <a href="office.html?category=file-cabinet" class="dropdown-item">
+            <img src="Images/office/file-cabinet/sample.jpg" alt="File Cabinet" />
+            <span>File Cabinet</span>
+          </a>
+          <a href="office.html?category=book-case" class="dropdown-item">
+            <img src="Images/office/book-case/sample.jpg" alt="Book Case" />
+            <span>Book Case</span>
+          </a>
         </div>
-        <a href="#" class="shop-all-link">Shop All Office</a>
+        <a href="office.html" class="shop-all-link">Shop All Office</a>
       </div>
     </div>
 
     <div class="dropdown">
-      <a href="#">Outdoor</a>
+      <a href="outdoors.html">Outdoor</a>
       <div class="dropdown-menu wide-dropdown">
         <div class="dropdown-grid">
-          <div class="dropdown-item"><img src="Images/" alt="Outdoor Seats" /><span>Outdoor Seats</span></div>
-          <div class="dropdown-item"><img src="Images/" alt="Outdoor Tables" /><span>Outdoor Tables</span></div>
+          <a href="outdoors.html?category=outdoor-seats" class="dropdown-item">
+            <img src="Images/outdoors/outdoor-seats/Blakley Swivel Chair  Round Wicker.jpg" alt="Outdoor Seats" />
+            <span>Outdoor Seats</span>
+          </a>
+          <a href="outdoors.html?category=outdoor-tables" class="dropdown-item">
+            <img src="Images/outdoors/outdoor-tables/Blakley Aluminum End Table.jpg" alt="Outdoor Tables" />
+            <span>Outdoor Tables</span>
+          </a>
         </div>
-        <a href="#" class="shop-all-link">Shop All Outdoor</a>
+        <a href="outdoors.html" class="shop-all-link">Shop All Outdoor</a>
       </div>
     </div>
 
-    <a href="#">Brands</a>
-    <a href="#">Financing</a>
+    <a href="brands.html">Brands</a>
+    <a href="financing.html">Financing</a>
   </nav>
 </header>
 
@@ -174,48 +286,52 @@
 <section class="category-scroll-section">
   <h2 class="category-title">What are you looking for?</h2>
   <div class="scroll-container">
+    
     <div class="category-card">
-      <img src="images/" alt="Leather">
-      <h3>Leather</h3>
-      <a href="allproducts.html" class="shop-now-btn">Shop Now</a>
-    </div>
-    <div class="category-card">
-      <img src="images/" alt="Leather">
+      <img src="images/living-room/Soho Leather Sofa in Black.jpg" alt="Leather">
       <h3>Leather</h3>
       <a href="allproducts.html?category=leather" class="shop-now-btn">Shop Now</a>
     </div>
+
     <div class="category-card">
-      <img src="images/" alt="Bed">
+      <img src="images/bedroom/beds/ARABELLE BLUSH VELVET BED.jpg" alt="Bed">
       <h3>Bed</h3>
       <a href="allproducts.html?category=bed" class="shop-now-btn">Shop Now</a>
     </div>
+
     <div class="category-card">
-      <img src="images/" alt="Sofa">
+      <img src="images/living-room/Deco Sofa.jpeg" alt="Sofa">
       <h3>Sofa</h3>
       <a href="allproducts.html?category=sofa" class="shop-now-btn">Shop Now</a>
     </div>
+
     <div class="category-card">
-      <img src="images/" alt="Coffee Tables">
+      <img src="images/living-room/Grace Coffee Table.jpg" alt="Coffee Tables">
       <h3>Coffee Tables</h3>
       <a href="allproducts.html?category=coffee-tables" class="shop-now-btn">Shop Now</a>
     </div>
+
     <div class="category-card">
-      <img src="images/" alt="Tables">
+      <img src="images/dining-room/dining-tables/Valentina Dining Table.jpg" alt="Tables">
       <h3>Tables</h3>
       <a href="allproducts.html?category=tables" class="shop-now-btn">Shop Now</a>
     </div>
+
     <div class="category-card">
-      <img src="images/" alt="Accessories">
+      <img src="images/accessories/art/Wall Art Golden Gate Bridge.jpg" alt="Accessories">
       <h3>Accessories</h3>
       <a href="accessories.html" class="shop-now-btn">Shop Now</a>
     </div>
+
     <div class="category-card">
-      <img src="images/" alt="Outdoor">
+      <img src="images/outdoors/outdoor-seats/Cayden Basket Chair.jpg" alt="Outdoor">
       <h3>Outdoor</h3>
-      <a href="outdoor.html" class="shop-now-btn">Shop Now</a>
+      <a href="outdoors.html" class="shop-now-btn">Shop Now</a>
     </div>
+
   </div>
 </section>
+
 
 
   <div class="page-container">
@@ -231,56 +347,56 @@
 
     <div id="living" class="room-section active">
       <div class="room-image">
-        <img src="Images/showroom.jpg" alt="Living Room" />
+        <img src="Images/living-room/101F Modern TV Base.jpg" alt="Living Room" />
       </div>
       <div class="room-content">
         <h2>LIVING ROOM</h2>
         <p>Discover comfortable and stylish living room furniture that transforms your space. From sofas to coffee tables, Blucci's collection offers timeless pieces for your home.</p>
-        <a href="#">SHOP NOW</a>
+        <a href="livingroom.html">SHOP NOW</a>
       </div>
     </div>
 
     <div id="bedroom" class="room-section reverse">
       <div class="room-image">
-        <img src="Images/1.jpg" alt="Bedroom" />
+        <img src="Images/bedroom/bedroom-sets/Ada Premium Bedroom.webp" alt="Bedroom" />
       </div>
       <div class="room-content">
         <h2>BEDROOM</h2>
         <p>Turn your bedroom into a serene retreat with Blucci's beds, nightstands, wardrobes, and more — where comfort meets elegance.</p>
-        <a href="#">SHOP NOW</a>
+        <a href="bedroom.html">SHOP NOW</a>
       </div>
     </div>
 
     <div id="dining" class="room-section">
       <div class="room-image">
-        <img src="Images/2.jpg" alt="Dining Room" />
+        <img src="Images/dining-room/dining-tables/B24 Dining Table.jpg" alt="Dining Room" />
       </div>
       <div class="room-content">
         <h2>DINING ROOM</h2>
         <p>Find dining room sets, tables, chairs, bar stools, sideboards, bar cabinets, and more to elevate your everyday dining experience.</p>
-        <a href="#">SHOP NOW</a>
+        <a href="diningroom.html">SHOP NOW</a>
       </div>
     </div>
 
     <div id="office" class="room-section reverse">
       <div class="room-image">
-        <img src="Images/3.jpg" alt="Office" />
+        <img src="Images/office/desk/A33 Modern office Desk in Matte Grey.jpg" alt="Office" />
       </div>
       <div class="room-content">
         <h2>OFFICE</h2>
         <p>Upgrade your workspace with our refined collection of desks, chairs, and shelves — where functionality meets luxury.</p>
-        <a href="#">SHOP NOW</a>
+        <a href="office.html">SHOP NOW</a>
       </div>
     </div>
 
     <div id="outdoor" class="room-section">
       <div class="room-image">
-        <img src="Images/3.jpg" alt="Outdoor" />
+        <img src="Images/outdoors/outdoor-tables/Blakley Aluminum Coffee Table.jpg" alt="Outdoor" />
       </div>
       <div class="room-content">
         <h2>OUTDOOR</h2>
         <p>See what's new in Blucci's outdoor furniture collections. Our latest pieces feature updated shapes, durable materials, and beautiful finishes built to last.</p>
-        <a href="#">SHOP NOW</a>
+        <a href="outdoors.html">SHOP NOW</a>
       </div>
     </div>
 
@@ -296,37 +412,37 @@
   </p><br><br>
   <div class="scroll-container">
     <div class="category-card">
-      <img src="Images/accessory1.jpg" alt="Rugs">
+      <img src="Images/" alt="Rugs">
       <h3>Rugs</h3>
       <p class="category-desc">Add warmth and texture with our curated collection of stylish rugs.</p><br>
       <a href="accessories.html?type=rugs" class="shop-now-btn">Shop Now</a>
     </div>
     <div class="category-card">
-      <img src="Images/accessory2.jpg" alt="Table Lamps">
+      <img src="Images/" alt="Table Lamps">
       <h3>Table Lamps</h3>
       <p class="category-desc">Illuminate your spaces with elegant and functional table lamps.</p><br>
       <a href="accessories.html?type=table-lamps" class="shop-now-btn">Shop Now</a>
     </div>
     <div class="category-card">
-      <img src="Images/accessory3.jpg" alt="Floor Lamps">
+      <img src="Images/accessories/floor-lamps/" alt="Floor Lamps">
       <h3>Floor Lamps</h3>
       <p class="category-desc">Stylish floor lamps that bring ambiance and character to any room.</p><br>
       <a href="accessories.html?type=floor-lamps" class="shop-now-btn">Shop Now</a>
     </div>
     <div class="category-card">
-      <img src="Images/accessory4.jpg" alt="Art">
+      <img src="Images/accessories/art/Wall Art Elephant Power.jpg" alt="Art">
       <h3>Art</h3>
       <p class="category-desc">Curated art pieces to inspire and personalize your home.</p><br>
       <a href="accessories.html?type=art" class="shop-now-btn">Shop Now</a>
     </div>
     <div class="category-card">
-      <img src="Images/accessory5.jpg" alt="Mirrors">
+      <img src="Images/accessories/mirror/Valentina Buffet Mirror.jpg" alt="Mirrors">
       <h3>Mirrors</h3>
       <p class="category-desc">Elegant mirrors that enhance space and light in your home.</p><br>
       <a href="accessories.html?type=mirrors" class="shop-now-btn">Shop Now</a>
     </div>
     <div class="category-card">
-      <img src="Images/accessory6.jpg" alt="Vases / Figurines">
+      <img src="Images/accessories/" alt="Vases / Figurines">
       <h3>Vases / Figurines</h3>
       <p class="category-desc">Delicate vases and figurines to add charm and personality.</p><br>
       <a href="accessories.html?type=vases" class="shop-now-btn">Shop Now</a>
@@ -337,7 +453,7 @@
 
   <section class="showroom">
     <div class="image-container">
-      <img src="Images/showroom.jpg"Showroom Bedroom Set">
+      <img src="Images/showroom.jpg"Showroom Bedroom Set>
     </div>
 
     <div class="text-container">
@@ -353,11 +469,13 @@
     <div class="newsletter">
       <h3>Special Offers For Subscribers</h3>
       <p>The Latest From Blucci</p>
-      <form>
-        <input type="email" placeholder="Email" required />
-        <button type="submit">Submit</button>
+      <form id="newsletter-form">
+        <label for="newsletter-email" class="sr-only">Email Address</label>
+        <input id="newsletter-email" type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
         <small>By continuing, you accept the privacy policy</small>
       </form>
+      <div id="newsletter-message" aria-live="polite" style="margin-top:10px; color:green;"></div>
     </div>
 
     <div class="about">
@@ -366,14 +484,14 @@
     </div>
 
     <div class="links">
-  <h3>Quick Links</h3>
-  <ul>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Store Locations</a></li>
-    <li><a href="#">Careers</a></li>
-    <li><a href="#">Terms & Conditions</a></li>
-  </ul>
-</div>
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="store.html">Store Locations</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+      </ul>
+    </div>
 
     <div class="contact">
       <h3>Contact Us</h3>
@@ -386,13 +504,13 @@
     </div>
 
     <div class="social">
-  <h3>Social Feeds</h3>
-  <ul>
-    <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-  </ul>
-</div>
-
+      <h3>Social Feeds</h3>
+      <ul>
+        <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+      </ul>
+    </div>
+  </div>
 
   <div class="footer-bottom">
     <p>Copyright © 2025 Blucci. All Right Reserved</p>

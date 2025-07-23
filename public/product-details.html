@@ -7,103 +7,386 @@
   <link rel="stylesheet" href="css/index.css" />
   <link rel="stylesheet" href="css/products.css" />
   <style>
-    .product-details {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .product-details div {
-      margin-top: 20px;
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-    }
-    button#addToCartBtn,
-    button#addToWishlistBtn {
-      background-color: #333;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 24px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      margin-right: 10px;
-      min-width: 140px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-    }
-    button#addToCartBtn:hover,
-    button#addToWishlistBtn:hover {
-      background-color: #555;
-    }
-    #suggestions {
-      margin: 40px auto 60px;
-      max-width: 1200px;
-      padding: 0 20px;
-    }
-    #suggestions h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    #suggestions .suggestions-scroll {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      padding-bottom: 10px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-      scrollbar-color: #ccc transparent;
-    }
-    #suggestions .suggestions-scroll::-webkit-scrollbar {
-      height: 8px;
-    }
-    #suggestions .suggestions-scroll::-webkit-scrollbar-thumb {
-      background-color: #ccc;
-      border-radius: 4px;
-    }
-    #suggestions .suggestion-item {
-      flex: 0 0 auto;
-      width: 180px;
-      cursor: pointer;
-      text-align: center;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px;
-      background: #fff;
-      transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    #suggestions .suggestion-item:hover {
-      box-shadow: 0 4px 15px rgba(139, 0, 0, 0.5);
-      border-color: darkred;
-      transform: scale(1.05);
-    }
-    #suggestions img {
-      max-width: 100%;
-      border-radius: 6px;
-      margin-bottom: 8px;
-      transition: transform 0.3s ease;
-    }
-    #suggestions .suggestion-item:hover img {
-      transform: scale(1.05);
-    }
-    #suggestions .suggestion-name {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #333;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-details div {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  button#addToCartBtn,
+  button#addToWishlistBtn {
+    background-color: #b22222; 
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 15px;
+    min-width: 160px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 700;
+    box-shadow: 0 4px 8px rgba(178, 34, 34, 0.3);
+    user-select: none;
+  }
+  
+  button#addToCartBtn:hover,
+  button#addToWishlistBtn:hover {
+    background-color: #8b1a1a;
+    box-shadow: 0 6px 12px rgba(139, 26, 26, 0.5);
+  }
+  
+  button#addToCartBtn:focus,
+  button#addToWishlistBtn:focus {
+    outline: 3px solid #ff6347; 
+    outline-offset: 2px;
+  }
+
+  button#addToWishlistBtn {
+    background-color: #555;
+    box-shadow: 0 4px 8px rgba(85, 85, 85, 0.3);
+  }
+  
+  button#addToWishlistBtn:hover {
+    background-color: #333;
+    box-shadow: 0 6px 12px rgba(51, 51, 51, 0.5);
+  }
+  
+  #suggestions {
+    margin: 40px auto 60px;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+
+  #suggestions h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  #suggestions .suggestions-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+  }
+
+  #suggestions .suggestions-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  #suggestions .suggestions-scroll::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+
+  #suggestions .suggestion-item {
+    flex: 0 0 auto;
+    width: 180px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #suggestions .suggestion-item:hover {
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.5);
+    border-color: darkred;
+    transform: scale(1.05);
+  }
+
+  #suggestions img {
+    max-width: 100%;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  #suggestions .suggestion-item:hover img {
+    transform: scale(1.05);
+  }
+
+  #suggestions .suggestion-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   </style>
 </head>
+
 <body class="product-details-page">
+  <div class="promo-banner">
+    <div class="scroll-text">
+      Memorial Day Sale : Up to 30% OFF Storewide.
+    </div>
+  </div>
+
+  <header class="main-header">
+  <div class="logo-and-toggle">
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+    <div class="logo">
+      <a href="index.html">
+        <img src="Images/logo.png" alt="Blucci Logo" class="logo-img" />
+      </a>
+    </div>
+    <div class="search-bar-container">
+      <input type="text" id="searchInput" placeholder="Search products..." />
+      <button id="searchButton">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+
+    <div class="top-info">
+      <div class="top-contact">
+        <div class="contact-info">
+          <i class="fas fa-phone"></i><span>972 293 6644</span>
+        </div>
+        <div class="login">
+          <i class="fas fa-user"></i><span>Login</span>
+        </div>
+      </div>
+      <div class="nav-icons">
+        <a href="wishlist.html" class="icon-link"><i class="far fa-heart"></i></a>
+        <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav-menu desktop-nav" id="navMenu">
+    <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
+
+    <div class="dropdown">
+      <a href="livingroom.html">Living Room</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <a href="livingroom.html?category=leather-sectionals" class="dropdown-item">
+            <img src="Images/living-room/leather-sectionals/1717 Italian Leather Sectional.jpg" alt="Leather Sectionals" />
+            <span>Leather Sectionals</span>
+          </a>
+          <a href="livingroom.html?category=leather-sofas" class="dropdown-item">
+            <img src="Images/living-room/leather-sofas/AVERY BLACK LEATHER CHAIR.jpg" alt="Leather Sofas" />
+            <span>Leather Sofas</span>
+          </a>
+          <a href="livingroom.html?category=fabric-sectionals" class="dropdown-item">
+            <img src="Images/living-room/fabric-sectionals/Divani Casa Glendale – Modern Grey Fabric Modular Sectional Sofa.jpg" alt="Fabric Sectionals" />
+            <span>Fabric Sectionals</span>
+          </a>
+          <a href="livingroom.html?category=fabric-sofas" class="dropdown-item">
+            <img src="Images/living-room/fabric-sofas/ARNO GREY VELVET SOFA.jpg" alt="Fabric Sofas" />
+            <span>Fabric Sofas</span>
+          </a>
+          <a href="livingroom.html?category=recliners" class="dropdown-item">
+            <img src="Images/living-room/recliners/#" alt="Recliners" />
+            <span>Recliners</span>
+          </a>
+          <a href="livingroom.html?category=accent-chairs" class="dropdown-item">
+            <img src="Images/living-room/accent-chairs/CRYSTAL VELVET PATTERNED ACCENT CHAIR.jpg" alt="Accent Chairs" />
+            <span>Accent Chairs</span>
+          </a>
+          <a href="livingroom.html?category=occasionals" class="dropdown-item">
+            <img src="Images/living-room/occassionals/682-D Modern Coffee Table in Dark Oak.jpg" alt="Occasional Tables" />
+            <span>Occasional Tables</span>
+          </a>
+          <a href="livingroom.html?category=console" class="dropdown-item">
+            <img src="Images/living-room/console/sample.jpg" alt="Console/Sofa Table" />
+            <span>Console/Sofa Table</span>
+          </a>
+          <a href="livingroom.html?category=end-tables" class="dropdown-item">
+            <img src="Images/living-room/end-tables/sample.jpg" alt="End Tables" />
+            <span>End Tables</span>
+          </a>
+          <a href="livingroom.html?category=ottomans" class="dropdown-item">
+            <img src="Images/living-room/ottomans/397 Italian Leather Ottoman in Chocolate Color.jpg" alt="Ottomans" />
+            <span>Ottomans</span>
+          </a>
+        </div>
+        <a href="livingroom.html" class="shop-all-link">Shop All Living</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="bedroom.html">Bedroom</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <a href="bedroom.html?category=bedroom-sets" class="dropdown-item">
+            <img src="Images/bedroom/bedroom-sets/Bella Premium Bedroom.jpg" alt="Bedroom Sets" />
+            <span>Bedroom Sets</span>
+          </a>
+          <a href="bedroom.html?category=beds" class="dropdown-item">
+            <img src="Images/bedroom/beds/AVA FOUR-POSTER BED.jpg" alt="Beds" />
+            <span>Beds</span>
+          </a>
+          <a href="bedroom.html?category=dressers" class="dropdown-item">
+            <img src="Images/bedroom/dressers/Braga-Dresser.jpeg" alt="Dressers" />
+            <span>Dressers</span>
+          </a>
+          <a href="bedroom.html?category=chests" class="dropdown-item">
+            <img src="Images/bedroom/chests/sample.jpg" alt="Chests" />
+            <span>Chests</span>
+          </a>
+          <a href="bedroom.html?category=night-stands" class="dropdown-item">
+            <img src="Images/bedroom/night-stands/sample.jpg" alt="Night Stands" />
+            <span>Night Stands</span>
+          </a>
+          <a href="bedroom.html?category=mattress" class="dropdown-item">
+            <img src="Images/bedroom/mattress/sample.jpg" alt="Mattress" />
+            <span>Mattress</span>
+          </a>
+        </div>
+        <a href="bedroom.html" class="shop-all-link">Shop All Bedroom</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="diningroom.html">Dining Room</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <a href="diningroom.html?category=formal-dining-sets" class="dropdown-item">
+            <img src="Images/dining-room/formal-dining-sets/Moderna Dining Set.jpg" alt="Formal Dining Sets" />
+            <span>Formal Dining Sets</span>
+          </a>
+          <a href="diningroom.html?category=casual-dining-sets" class="dropdown-item">
+            <img src="Images/dining-room/casual-dining-sets/sample.jpg" alt="Casual Dining Set" />
+            <span>Casual Dining Set</span>
+          </a>
+          <a href="diningroom.html?category=dining-chairs" class="dropdown-item">
+            <img src="Images/dining-room/dining-chairs/Chiara Dining Chair.jpg" alt="Dining Chairs" />
+            <span>Dining Chairs</span>
+          </a>
+          <a href="diningroom.html?category=dining-tables" class="dropdown-item">
+            <img src="Images/dining-room/dining-tables/Class Extension Dining Table.jpg" alt="Dining Tables" />
+            <span>Dining Tables</span>
+          </a>
+          <a href="diningroom.html?category=pub-tables" class="dropdown-item">
+            <img src="Images/dining-room/pub-tables/sample.jpg" alt="Pub Tables" />
+            <span>Pub Tables</span>
+          </a>
+          <a href="diningroom.html?category=bar-tables" class="dropdown-item">
+            <img src="Images/dining-room/bar-tables/sample.jpg" alt="Bar Tables" />
+            <span>Bar Tables</span>
+          </a>
+          <a href="diningroom.html?category=buffets" class="dropdown-item">
+            <img src="Images/dining-room/buffets/sample.jpg" alt="Buffets" />
+            <span>Buffets</span>
+          </a>
+          <a href="diningroom.html?category=bar-stools" class="dropdown-item">
+            <img src="Images/dining-room/bar-stools/sample.jpg" alt="Bar Stools" />
+            <span>Bar Stools</span>
+          </a>
+          <a href="diningroom.html?category=counter-stools" class="dropdown-item">
+            <img src="Images/dining-room/counter-stools/sample.jpg" alt="Counter Stools" />
+            <span>Counter Stools</span>
+          </a>
+        </div>
+        <a href="diningroom.html" class="shop-all-link">Shop All Dining</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="accessories.html">Accessories</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <a href="accessories.html?category=rugs" class="dropdown-item">
+            <img src="Images/accessories/rugs/sample.jpg" alt="Rugs" />
+            <span>Rugs</span>
+          </a>
+          <a href="accessories.html?category=table-lamps" class="dropdown-item">
+            <img src="Images/accessories/table-lamps/sample.jpg" alt="Table Lamps" />
+            <span>Table Lamps</span>
+          </a>
+          <a href="accessories.html?category=floor-lamps" class="dropdown-item">
+            <img src="Images/accessories/floor-lamps/sample.jpg" alt="Floor Lamps" />
+            <span>Floor Lamps</span>
+          </a>
+          <a href="accessories.html?category=art" class="dropdown-item">
+            <img src="Images/accessories/art/Wall Art Elephant Power.jpg" alt="Art" />
+            <span>Art</span>
+          </a>
+          <a href="accessories.html?category=mirrors" class="dropdown-item">
+            <img src="Images/accessories/mirror/Valentina Buffet Mirror.jpg" alt="Mirrors" />
+            <span>Mirrors</span>
+          </a>
+          <a href="accessories.html?category=vases" class="dropdown-item">
+            <img src="Images/accessories/vases/sample.jpg" alt="Vases/Figurines" />
+            <span>Vases/Figurines</span>
+          </a>
+        </div>
+        <a href="accessories.html" class="shop-all-link">Shop All Accessories</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="office.html">Office Room</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <a href="office.html?category=desk" class="dropdown-item">
+            <img src="Images/office/desk/Elm Modern Desk in Walnut.jpg" alt="Desk" />
+            <span>Desk</span>
+          </a>
+          <a href="office.html?category=office-chair" class="dropdown-item">
+            <img src="Images/office/office-chair/Comfy Low Back Office Chair In Brown.jpg" alt="Office Chair" />
+            <span>Office Chair</span>
+          </a>
+          <a href="office.html?category=file-cabinet" class="dropdown-item">
+            <img src="Images/office/file-cabinet/sample.jpg" alt="File Cabinet" />
+            <span>File Cabinet</span>
+          </a>
+          <a href="office.html?category=book-case" class="dropdown-item">
+            <img src="Images/office/book-case/sample.jpg" alt="Book Case" />
+            <span>Book Case</span>
+          </a>
+        </div>
+        <a href="office.html" class="shop-all-link">Shop All Office</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="outdoors.html">Outdoor</a>
+      <div class="dropdown-menu wide-dropdown">
+        <div class="dropdown-grid">
+          <a href="outdoors.html?category=outdoor-seats" class="dropdown-item">
+            <img src="Images/outdoors/outdoor-seats/Blakley Swivel Chair  Round Wicker.jpg" alt="Outdoor Seats" />
+            <span>Outdoor Seats</span>
+          </a>
+          <a href="outdoors.html?category=outdoor-tables" class="dropdown-item">
+            <img src="Images/outdoors/outdoor-tables/Blakley Aluminum End Table.jpg" alt="Outdoor Tables" />
+            <span>Outdoor Tables</span>
+          </a>
+        </div>
+        <a href="outdoors.html" class="shop-all-link">Shop All Outdoor</a>
+      </div>
+    </div>
+
+    <a href="brands.html">Brands</a>
+    <a href="financing.html">Financing</a>
+  </nav>
+</header>
+
   <main class="room-container">
     <h1 class="room-section-title" id="productName">Product Name</h1>
     <div class="product-details">
@@ -167,84 +450,8 @@
   </footer>
 
   <script src="js/products.js"></script>
-  <script>
-    function saveToStorage(key, product) {
-      let stored = localStorage.getItem(key);
-      let list = stored ? JSON.parse(stored) : [];
-      if (!list.some(item => item.image === product.image)) {
-        list.push(product);
-        localStorage.setItem(key, JSON.stringify(list));
-      }
-    }
-
-    async function showProductDetails() {
-      const params = new URLSearchParams(window.location.search);
-      const image = params.get('image');
-      const name = params.get('name');
-
-      if (name) document.getElementById('productName').textContent = name;
-      if (image) {
-        const imgEl = document.getElementById('productImage');
-        imgEl.src = `/Images/living-room/${encodeURIComponent(image)}`;
-        imgEl.alt = name || 'Product Image';
-      }
-
-      const addToCartBtn = document.getElementById('addToCartBtn');
-      if (addToCartBtn) addToCartBtn.addEventListener('click', () => {
-        saveToStorage('cartItems', { image, name });
-        window.location.href = 'cart.html';
-      });
-
-      const addToWishlistBtn = document.getElementById('addToWishlistBtn');
-      if (addToWishlistBtn) addToWishlistBtn.addEventListener('click', () => {
-        saveToStorage('wishlistItems', { image, name });
-        window.location.href = 'wishlist.html';
-      });
-
-      await loadSuggestions(image);
-    }
-
-    async function loadSuggestions(currentImage) {
-      try {
-        const response = await fetch('/api/livingroom-products');
-        if (!response.ok) throw new Error('Failed to fetch suggestions');
-        const products = await response.json();
-
-        const filtered = products.filter(img => img !== currentImage);
-
-        for (let i = filtered.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
-        }
-
-        const suggestions = filtered.slice(0, 3);
-
-        const suggestionsGrid = document.getElementById('suggestionsGrid');
-        suggestionsGrid.innerHTML = '';
-
-        suggestions.forEach(img => {
-          const name = img.replace(/[-_]/g, ' ').replace(/\.[^/.]+$/, '');
-          const item = document.createElement('div');
-          item.className = 'suggestion-item';
-          item.title = name;
-          item.innerHTML = `
-            <img src="/Images/living-room/${encodeURIComponent(img)}" alt="${name}" />
-            <div class="suggestion-name">${name}</div>
-          `;
-          item.addEventListener('click', () => {
-            const url = new URL(window.location.origin + '/product-details.html');
-            url.searchParams.set('image', img);
-            url.searchParams.set('name', name);
-            window.location.href = url.toString();
-          });
-          suggestionsGrid.appendChild(item);
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', showProductDetails);
-  </script>
+  <script src="js/script.js"></script>
+  <script src="js/wishlist.js"></script>
+  
 </body>
 </html>
