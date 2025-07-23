@@ -118,16 +118,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const allProducts = [
-      { name: "Leather Sofa", image: "Images/living-room/leather-sofas/sample.jpg", url: "livingroom.html?category=leather-sofas" },
+      { name: "Leather Sofa", image: "Images/living-room/leather-sofas/Cour Italian Leather Sofa.jpeg", url: "livingroom.html?category=leather-sofas" },
       { name: "Formal Dining Set", image: "Images/dining-room/formal-dining-sets/Moderna Dining Set.jpg", url: "diningroom.html?category=formal-dining-sets" },
       { name: "Office Chair", image: "Images/office/office-chair/Comfy Low Back Office Chair In Brown.jpg", url: "office.html?category=office-chair" },
-      { name: "Rugs", image: "Images/accessories/rugs/sample.jpg", url: "accessories.html?category=rugs" },
-      { name: "Accent Chair", image: "Images/living-room/accent-chairs/sample.jpg", url: "livingroom.html?category=accent-chairs" },
-      { name: "Night Stand", image: "Images/bedroom/night-stands/sample.jpg", url: "bedroom.html?category=night-stands" },
-      { name: "Leather Sectional", image: "Images/living-room/leather-sectionals/sample.jpg", url: "livingroom.html?category=leather-sectionals" },
+      { name: "Rugs", image: "Images/accessories/rugs/rug.jfif", url: "accessories.html?category=rugs" },
+      { name: "Accent Chair", image: "Images/living-room/accent-chairs/ALLORA GREY ACCENT CHAIR.jpg", url: "livingroom.html?category=accent-chairs" },
+      { name: "Night Stand", image: "Images/bedroom/night-stands/Mid-century Modern Nightstands_ Bedroom Essentials.jfif", url: "bedroom.html?category=night-stands" },
+      { name: "Leather Sectional", image: "Images/living-room/leather-sectionals/Antonio Sectional.jpeg", url: "livingroom.html?category=leather-sectionals" },
       { name: "Beds", image: "Images/bedroom/beds/AVA FOUR-POSTER BED.jpg", url: "bedroom.html?category=beds" },
       { name: "Dining Chairs", image: "Images/dining-room/dining-chairs/Chiara Dining Chair.jpg", url: "diningroom.html?category=dining-chairs" },
-      { name: "Floor Lamps", image: "Images/accessories/floor-lamps/sample.jpg", url: "accessories.html?category=floor-lamps" },
+      { name: "Art", image: "Images/accessories/art/Wall Art Marilyn Monroe.jpg", url: "accessories.html?category=floor-lamps" },
     ];
 
     function getSuggestions(currentProductName, count = 3) {
