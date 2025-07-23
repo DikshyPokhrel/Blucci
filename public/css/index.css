@@ -1409,7 +1409,7 @@ a {
   color: #222;
 }
 
-.wishlist-remove-btn {
+.remove-btn {
   background-color: #e74c3c;
   border: none;
   border-radius: 20px;
@@ -1420,7 +1420,7 @@ a {
   transition: background-color 0.3s ease;
 }
 
-.wishlist-remove-btn:hover {
+.remove-btn:hover {
   background-color: darkred;
 }
 
