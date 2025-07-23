@@ -345,3 +345,35 @@ main.room-container {
   margin-right: auto;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
+
+@media (max-width: 600px) {
+  .brands-section {
+    padding: 30px 10px;
+    margin: 80px auto 30px auto;
+    width: 95%;
+  }
+
+  .brands-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .brand-card img {
+    max-height: 50px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .brand-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .brand-card:hover img {
+    transform: none;
+  }
+}
