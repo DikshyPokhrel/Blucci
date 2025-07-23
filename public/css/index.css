@@ -206,7 +206,7 @@ body {
   gap: 20px;
   font-size: 1.1rem;
   cursor: pointer;
-  color: inherit;
+  color: white;
   transition: color 0.3s ease;
   white-space: nowrap;
   flex-shrink: 0;
@@ -1085,7 +1085,10 @@ footer a:hover {
     color: #000; 
     text-decoration: none;
   }
-
+.nav-menu a,
+  .nav-menu > .dropdown > a {
+    color: black !important;
+  }
   .nav-menu .close-menu {
     display: block;
     position: absolute;
@@ -1196,6 +1199,9 @@ footer a:hover {
   align-items: center;
   height: 100%;
 }
+ .dropdown-item {
+    color: black !important;
+  }
 
 .nav-menu > a:hover,
 .nav-menu > .dropdown > a:hover {

@@ -136,6 +136,11 @@ function renderProductsPage() {
         heart.className = 'fas fa-heart wishlist-icon';
         heart.style.cursor = 'pointer';
         heart.addEventListener('click', () => {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+           if (!wishlist.some(item => item.src === product.src)) {
+                wishlist.push(product);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            }
             window.location.href = 'wishlist.html';
         });
 
@@ -143,6 +148,11 @@ function renderProductsPage() {
         cart.className = 'fas fa-shopping-cart cart-icon';
         cart.style.cursor = 'pointer';
         cart.addEventListener('click', () => {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            if (!cartItems.some(item => item.src === product.src)) {
+                cartItems.push(product);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            }
             window.location.href = 'cart.html';
         });
 
@@ -156,6 +166,7 @@ function renderProductsPage() {
         grid.appendChild(card);
     });
 }
+
 
 function renderPagination() {
     paginationControls.innerHTML = '';
