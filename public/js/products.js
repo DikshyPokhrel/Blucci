@@ -84,8 +84,20 @@ async function loadProducts() {
         }
     }
 
-    document.getElementById('totalProductCount').textContent = `Total Products: ${allProducts.length}`;
-    filteredProducts = [...allProducts];
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryQuery = urlParams.get('category');
+
+    if (categoryQuery) {
+        const queryLower = categoryQuery.toLowerCase();
+        filteredProducts = allProducts.filter(product =>
+            product.name.toLowerCase().includes(queryLower) ||
+            product.category.toLowerCase().includes(queryLower)
+        );
+    } else {
+        filteredProducts = [...allProducts];
+    }
+
+    document.getElementById('totalProductCount').textContent = `Total Products: ${filteredProducts.length}`;
     render();
 }
 
@@ -101,7 +113,7 @@ function renderProductsPage() {
         card.className = "product-card";
 
         const wishlistIcon = document.createElement('i');
-        wishlistIcon.className = 'far fa-heart wishlist-icon'; // outline heart
+        wishlistIcon.className = 'far fa-heart wishlist-icon';
         wishlistIcon.title = 'Add to Wishlist';
         wishlistIcon.addEventListener('click', () => {
             let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
@@ -139,12 +151,11 @@ function renderProductsPage() {
         cartIcon.addEventListener('click', () => {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             if (!cart.some(item => item.src === product.src)) {
-    cart.push({ ...product, price: current });
-}
-
+                cart.push({ ...product, price: current });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
             window.location.href = 'cart.html';
         });
-
 
         priceBox.appendChild(currentPrice);
         priceBox.appendChild(cartIcon);
@@ -155,7 +166,6 @@ function renderProductsPage() {
         grid.appendChild(card);
     });
 }
-
 
 function renderPagination() {
     paginationControls.innerHTML = '';
@@ -201,6 +211,7 @@ function applyFiltersAndSort(skipFiltering = false) {
         }
     }
     currentPage = 1;
+    document.getElementById('totalProductCount').textContent = `Total Products: ${filteredProducts.length}`;
     render();
 }
 
@@ -220,6 +231,7 @@ searchInput.addEventListener('input', () => {
         product.name.toLowerCase().includes(query)
     );
     currentPage = 1;
+    document.getElementById('totalProductCount').textContent = `Total Products: ${filteredProducts.length}`;
     render();
 });
 

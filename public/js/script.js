@@ -1,3 +1,12 @@
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.main-header');
+  if (window.scrollY > 50) {
+    header.classList.add('hide-header');
+  } else {
+    header.classList.remove('hide-header');
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   const popup = document.getElementById("popup");
   const popupClose = document.getElementById("popupClose");
@@ -52,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
       showSlide1(slideIndex1);
     }, 4000);
   }
-
 
   const heroSlides = document.querySelectorAll(".hero-slide");
   const prevBtn2 = document.getElementById("prev");

@@ -315,23 +315,27 @@
 
 .room-pagination {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   margin-top: 30px;
 }
 
 .room-pagination button {
-  padding: 8px 12px;
-  font-size: 1rem;
+  padding: 6px 10px;
+  font-size: 0.9rem;
   cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
 }
 
 .room-pagination .active {
   background-color: #333;
   color: white;
-  border: none;
-  border-radius: 4px;
+  font-weight: bold;
 }
+
 
 @media (max-width: 1024px) {
   .room-product-list {
@@ -341,7 +345,7 @@
 
 @media (max-width: 678px) {
   .room-product-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   .product-card img {
     height: 280px;
